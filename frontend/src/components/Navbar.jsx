@@ -9,9 +9,9 @@ const Navbar = () => {
   return (
 
     <div className='flex items-center justify-between pt-2 pr-2 font-medium'>
-        <NavLink to="/">
+        <Link to="/">
             <img src={assets.logo} className=' w-20 sm:w-40' alt="" />
-        </NavLink>
+        </Link>
         <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
             <NavLink to="/" className="flex flex-col items-center gap-0.5">
                 <p>HOME</p>
