@@ -6,7 +6,7 @@ import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products ,currency} = useContext(ShopContext);
+  const { products ,currency,addToCart} = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [size,setSize]=useState("")
   const [image, setImage] = useState("");
@@ -40,7 +40,7 @@ const Product = () => {
                 onClick={() => setImage(item)}
                 src={item}
                 key={index}
-                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
+                className="w-[24%] sm:w-full sm:mb-3 flex shrink-0 cursor-pointer"
                 alt=""
               />
             ))}
@@ -73,7 +73,7 @@ const Product = () => {
             </div>
           </div>
 
-          <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 cursor-pointer rounded-lg">ADD TO CART</button>
+          <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 cursor-pointer rounded-lg" onClick={()=>addToCart(productData._id,size)}>ADD TO CART</button>
           <hr className="mt-8 sm:w-4/5 text-gray-400"/>
 
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
@@ -87,8 +87,8 @@ const Product = () => {
       {/* ----------Description & Review Section -------- */}
       <div className="mt-20">
         <div className="flex ">
-          <b className="border border-gray-400 px-5 py-3 text-sm">Description</b>
-          <b className="border border-gray-400 px-5 py-3 text-sm">Reviews (122)</b>
+          <b className="cursor-pointer border border-gray-400 px-5 py-3 text-sm">Description</b>
+          <b className="border cursor-pointer border-gray-400 px-5 py-3 text-sm">Reviews (122)</b>
         </div>
         <div className="flex flex-col gap-4 border border-gray-400 px-6 py-6 text-sm text-gray-500">
           <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint beatae sunt cumque est praesentium eveniet facere consectetur sed ipsam nulla ipsum necessitatibus repudiandae blanditiis at laborum esse, itaque exercitationem minus.</p>
